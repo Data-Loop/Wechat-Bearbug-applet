@@ -1,0 +1,46 @@
+.main{
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#ffd700, #fff9c4);
+}
+.btn{
+  border: 1px solid #ffd700;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#ffd700, #ffeb3b);
+  color: #333;
+}
+.btn:hover{
+  background: linear-gradient(#ffeb3b, #ffd700);
+}
+.result{
+  height: 200px;
+  border: 1px dotted #ffd700;
+}
+.rs{
+  height: 45px;
+  border: 1px solid #ffeb3b;
+  display: flex;
+ align-items: center;
+}
+.no{
+  width: 30px;
+}
+.name{
+  width: 150px;
+}
+.pro{
+  width: 105px;
+}
+
+.score{
+  flex-grow: 1;
+}
+.pro view{
+  background: #ffd700;
+  height: 15px;
+  border-radius: 5px;
+}

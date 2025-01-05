@@ -1,0 +1,25 @@
+<view class="main">
+  <view class="message">
+    <image src="/images/{{icon}}" mode="" />
+    {{errorMsg}}
+  </view>
+  <!-- 图片上传预览 -->
+  <view class="form">
+    <image src="{{tu}}" bind:tap="xuan" mode="" />
+   
+  </view>
+  <!-- 按钮 -->
+  <view class="btn" bind:tap="shibie">
+    开始识别
+  </view>
+
+  <!-- 美化后的结果显示区域 -->
+  <view class='result' wx:if="{{rs.length > 0}}">
+    <view class='result-title'>识别结果</view>
+    <view class="rs" wx:for="{{rs}}" wx:key="index">
+      <view class="text-content">
+        <text class="text-item">{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>

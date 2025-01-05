@@ -1,0 +1,37 @@
+.message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  height: 65px;
+  background: linear-gradient(to right, #ffd700, #fff9c4);
+  padding: 10px 0;
+}
+.message image{
+  width: 45px;
+  height: 45px;
+  margin: 0 15px;
+}
+.form{
+  height: 40vh;
+  border: 1px dotted #ffd700;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(#ffd700, #fff9c4);
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.form:hover {
+  transform: scale(1.02);
+}
+.form image{
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.form image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 215, 0, 0.3);
+}

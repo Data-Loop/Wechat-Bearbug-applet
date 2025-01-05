@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/car/car",
+    "pages/face/face",
+    "pages/plant/plant",
+    "pages/animal/animal",
+    "pages/dragon/dragon",
+    "pages/word/word"
+  ],
+  "window": {
+    "navigationBarTitleText": "🐻 小熊虫组 🐞",
+    "navigationBarBackgroundColor": "#ffd700",
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#fff9c4"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,104 @@
+<view class='main'>
+  <!-- 修改弹跳图片部分，添加点击事件 -->
+  <view class="bounce-image" style="{{bounceStyle}}" bindtap="handleBounceClick">
+    <image wx:if="{{!isSpecialPlay}}" src="/images/x{{currentImageIndex}}.jpg" mode="aspectFit"/>
+    <image wx:else src="/images/g{{specialImageIndex}}.jpg" mode="aspectFit"/>
+  </view>
+  
+  <!-- 添加loading组件 -->
+  <loading show="{{showLoading}}" />
+  
+  <!-- 搜索区 -->
+  <view class='search'>
+  <view class="search-box">
+    <input type="text" placeholder="搜索功能" placeholder-class="placeholder-style" bindinput="searchInput" value="{{searchText}}"/>
+    <view class="search-mode" bindtap="toggleSearchMode">
+      {{isExactMatch ? '精准' : '模糊'}}
+    </view>
+  </view>
+</view>
+  <!-- 轮播区 -->
+  <view class="sw">
+    <swiper class='swiper' autoplay="true" indicator-dots="true" indicator-color="#d3d4aa" indicator-active-color="#f0f3f0" interval="3000" duration="1000" circular="true">
+      <swiper-item>
+        <view class="swiper-item">
+          <image src="/images/clsb.jpg" bind:tap="gocar" mode="" />
+          <text class="swiper-text">车辆识别</text>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="swiper-item">
+          <image src="/images/dwsb.jpg" bind:tap="goanimal" mode="" />
+          <text class="swiper-text">动物识别</text>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="swiper-item">
+          <image src="/images/zwsb.jpg" bind:tap="goplant" mode="" />
+          <text class="swiper-text">植物识别</text>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="swiper-item">
+          <image src="/images/rldb.jpg" bind:tap="goface" mode="" />
+          <text class="swiper-text">人脸对比</text>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="swiper-item">
+          <image src="/images/tjel.jpg" bind:tap="godragon" mode="" />
+          <text class="swiper-text">挑战恶龙</text>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="swiper-item">
+          <image src="/images/word.jpg" bind:tap="goword" mode="" />
+          <text class="swiper-text">文字识别</text>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 功能区 -->
+  <view class="row" wx:if="{{filteredItems.length > 0}}">
+    <block wx:for="{{filteredItems}}" wx:key="type">
+      <view class="box" 
+            bind:tap="go{{item.type}}" 
+            wx:if="{{item.row === 1}}">
+        <image src="{{item.image}}" />
+        <view class='txt'>
+          <view>{{item.title}}</view>
+          <view class='price'>￥{{item.price}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="row" wx:if="{{filteredItems.length > 0}}">
+    <block wx:for="{{filteredItems}}" wx:key="type">
+      <view class="box" 
+            bind:tap="go{{item.type}}" 
+            wx:if="{{item.row === 2}}">
+        <image src="{{item.image}}" />
+        <view class='txt'>
+          <view>{{item.title}}</view>
+          <view class='price'>￥{{item.price}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 游戏区域 -->
+  <view class="game-row" wx:if="{{filteredItems.length > 0}}">
+    <block wx:for="{{filteredItems}}" wx:key="type">
+      <view class="{{item.isGame ? 'game-box' : 'box'}}" 
+            bind:tap="go{{item.type}}" 
+            wx:if="{{item.row === 3}}">
+        <image src="{{item.image}}" />
+        <view class='txt'>
+          <view>{{item.title}}</view>
+          <view class='price'>￥{{item.price}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

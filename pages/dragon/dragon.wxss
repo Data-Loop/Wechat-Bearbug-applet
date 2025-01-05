@@ -1,0 +1,494 @@
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* 固定背景 */
+.page-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 状态栏 */
+.status {
+  position: relative;
+  width: 92%;
+  margin-top: 20rpx;
+  padding: 20rpx;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.8));
+  border: 4rpx solid #B8860B;
+  border-radius: 20rpx;
+  box-shadow: 0 0 20rpx rgba(184, 134, 11, 0.3);
+}
+
+/* 左侧头像 */
+.left {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.tx {
+  width: 100%;
+  height: 100%;
+  border-radius: 15rpx;
+  overflow: hidden;
+  border: 4rpx solid #FFD700;
+  box-shadow: 0 0 15rpx #FFD700;
+  animation: pulse 2s infinite;
+}
+
+.tx image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 右侧状态信息 */
+.right {
+  flex: 1;
+  margin-left: 30rpx;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15rpx;
+}
+
+.right text {
+  color: #FFD700;
+  font-size: 28rpx;
+  padding: 10rpx 20rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10rpx;
+  border: 2rpx solid #B8860B;
+  text-align: center;
+}
+
+/* 事件图片 */
+.background-image {
+  width: 92%;
+  height: 40vh;
+  margin: 20rpx auto;
+  border-radius: 20rpx;
+  border: 4rpx solid #B8860B;
+  box-shadow: 0 0 20rpx rgba(184, 134, 11, 0.3);
+  object-fit: cover;
+  z-index: 2;
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* 事件消息 */
+.event-message {
+  position: relative;
+  width: 92%;
+  margin: 20rpx auto;
+  padding: 20rpx;
+  z-index: 3;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgba(50, 50, 50, 0.85));
+  border: 4rpx solid #B8860B;
+  border-radius: 20rpx;
+  box-shadow: 0 0 20rpx rgba(184, 134, 11, 0.3);
+}
+
+.event-message text {
+  color: #FFD700;
+  font-size: 32rpx;
+  line-height: 1.6;
+  text-align: center;
+  display: block;
+  text-shadow: 2rpx 2rpx 4rpx rgba(0, 0, 0, 0.5);
+}
+
+/* 按钮区域 */
+.bingpai {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 30rpx;
+}
+
+.bingpai button {
+  flex: 1;
+  background: linear-gradient(135deg, #B8860B, #FFD700);
+  color: #000;
+  font-weight: bold;
+  font-size: 32rpx;
+  padding: 25rpx 0;
+  border-radius: 50rpx;
+  border: none;
+  box-shadow: 0 4rpx 15rpx rgba(184, 134, 11, 0.5);
+}
+
+.bingpai button:active {
+  transform: scale(0.95);
+  background: linear-gradient(135deg, #FFD700, #B8860B);
+}
+
+/* 重新开始按钮 */
+.container > view:last-child {
+  position: fixed;
+  bottom: 60rpx;
+  z-index: 3;
+}
+
+.container > view:last-child button {
+  background: linear-gradient(135deg, #8B0000, #FF0000);
+  color: #FFF;
+  font-weight: bold;
+  font-size: 32rpx;
+  padding: 25rpx 60rpx;
+  border-radius: 50rpx;
+  border: none;
+  box-shadow: 0 4rpx 15rpx rgba(139, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.container > view:last-child button:active {
+  transform: scale(0.95);
+  background: linear-gradient(135deg, #FF0000, #8B0000);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 15rpx #FFD700; }
+  50% { box-shadow: 0 0 25rpx #FFD700; }
+  100% { box-shadow: 0 0 15rpx #FFD700; }
+}
+
+/* 添加胜利按钮样式 */
+.victory-btn {
+  background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+  color: white !important;
+}
+
+.game-end {
+  position: fixed;
+  bottom: 60rpx;
+  z-index: 3;
+  width: 92%;
+  display: flex;
+  justify-content: center;
+}
+
+.game-end button {
+  min-width: 200rpx;
+  padding: 25rpx 60rpx;
+  border-radius: 50rpx;
+  font-weight: bold;
+  font-size: 32rpx;
+  box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.game-end button:active {
+  transform: scale(0.95);
+}
+
+/* 按钮容器 */
+.button-container {
+  position: fixed;
+  bottom: 120rpx;
+  width: 92%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20rpx;
+  z-index: 3;
+}
+
+/* 背景切换按钮 */
+.background-switch {
+  width: 200rpx;
+  padding: 12rpx 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.7));
+  border: 2rpx solid #B8860B;
+  border-radius: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-switch text {
+  color: #FFD700;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+/* 背景商店样式 */
+.background-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10rpx;
+  border: 2rpx solid #B8860B;
+  margin-bottom: 15rpx;
+}
+
+.background-info {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.bg-name {
+  font-size: 28rpx;
+  color: #FFD700;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.original-price {
+  color: #999;
+  font-size: 24rpx;
+  text-decoration: line-through;
+  margin-right: 10rpx;
+}
+
+.trial-tag {
+  background: #FF4444;
+  color: white;
+  font-size: 22rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+}
+
+.free {
+  color: #4CAF50 !important;
+  font-size: 24rpx !important;
+}
+
+/* 修改行动按钮样式以保持一致性 */
+.bingpai {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 30rpx;
+}
+
+.bingpai button {
+  flex: 1;
+  background: linear-gradient(135deg, #B8860B, #FFD700);
+  color: #000;
+  font-weight: bold;
+  font-size: 32rpx;
+  padding: 25rpx 0;
+  border-radius: 50rpx;
+  border: none;
+  box-shadow: 0 4rpx 15rpx rgba(184, 134, 11, 0.5);
+}
+
+/* 弹窗标题样式 */
+.modal-title {
+  color: #FFD700;
+  font-size: 36rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.5);
+}
+
+.background-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 80%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(50, 50, 50, 0.9));
+  border-radius: 20rpx;
+  padding: 30rpx;
+  border: 4rpx solid #B8860B;
+}
+
+.modal-title {
+  color: #FFD700;
+  font-size: 36rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.background-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.background-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10rpx;
+  border: 2rpx solid #B8860B;
+}
+
+.background-item image {
+  width: 120rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+}
+
+.background-info {
+  flex: 1;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.background-info text {
+  color: #FFD700;
+  font-size: 28rpx;
+}
+
+.price {
+  color: #4CAF50 !important;
+  font-size: 24rpx !important;
+}
+
+.free {
+  color: #999 !important;
+  font-size: 24rpx !important;
+}
+
+.modal-close {
+  margin-top: 30rpx;
+  padding: 20rpx;
+  text-align: center;
+  color: #FFD700;
+  font-size: 32rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10rpx;
+  border: 2rpx solid #B8860B;
+}
+
+.modal-close:active {
+  opacity: 0.8;
+}
+
+/* 设置按钮容器 */
+.setting-buttons {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.setting-btn {
+  width: 180rpx;
+  padding: 12rpx 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.7));
+  border: 2rpx solid #B8860B;
+  border-radius: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.setting-btn text {
+  color: #FFD700;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+/* 头像弹窗样式 */
+.avatar-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-list {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.avatar-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10rpx;
+  border: 2rpx solid #B8860B;
+  margin-bottom: 15rpx;
+}
+
+.avatar-item image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 2rpx solid #FFD700;
+}
+
+.avatar-info {
+  flex: 1;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.avatar-name {
+  font-size: 28rpx;
+  color: #FFD700;
+}
+
+.avatar-type {
+  font-size: 24rpx;
+  color: #4CAF50;
+  background: rgba(76, 175, 80, 0.1);
+  padding: 2rpx 10rpx;
+  border-radius: 10rpx;
+  display: inline-block;
+  margin-right: 10rpx;
+}
+
+/* 修改现有的头像显示 */
+.tx image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4rpx solid #FFD700;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 10rpx;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5rpx;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B8860B;
+  border-radius: 5rpx;
+}

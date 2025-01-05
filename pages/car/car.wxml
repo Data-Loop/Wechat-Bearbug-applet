@@ -1,0 +1,29 @@
+<view class="main">
+  <view class="message">
+    <image src="/images/{{icon}}" mode="" />
+    {{errorMsg}}
+  </view>
+  <!-- 图片上传预览 -->
+  <view class="form">
+    <image src="{{tu}}" bind:tap="xuan" mode="" />
+
+  </view>
+  <!-- 按钮 -->
+  <view class="btn" bind:tap="shibie">
+    开始识别
+  </view>
+
+
+
+  <!-- 显示结果 -->
+  <view class='result'>
+    <view class='rs' wx:for="{{rs}}" wx:key="no">
+      <view class='no'>{{item.no}}</view>
+      <view class='name'>{{item.name}}</view>
+      <view class='pro'>
+      <view style="width: {{item.score}}px;"></view>
+      </view>
+      <view class='score'>{{item.score}}%</view>
+    </view>
+  </view>   
+</view>

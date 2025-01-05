@@ -1,0 +1,6 @@
+<view class="loading-container" wx:if="{{show}}">
+  <view class="loading-box">
+    <image src="/images/loading.jpg" class="loading-image" mode="aspectFit"/>
+    <text class="loading-text">加载中...</text>
+  </view>
+</view> 
