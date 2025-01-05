@@ -64,6 +64,27 @@
 - 缓存策略实现
 
 ## 项目结构
+
+### 目录说明
+
+#### pages 目录
+- **index/** - 首页模块，包含主要导航和搜索功能
+- **car/** - 车辆识别模块，提供车型识别功能
+- **dragon/** - 动物识别模块，提供动物识别功能
+- **game/** - 游戏模块，提供互动游戏功能
+- **face/** - 人脸对比模块，提供人脸识别功能
+- **plant/** - 植物识别模块，提供植物识别功能
+- **word/** - 文字识别模块，提供OCR功能
+
+#### 核心文件
+- **app.js** - 应用入口，包含全局配置和API密钥
+- **app.json** - 应用配置，定义页面路由和全局设置
+- **app.wxss** - 全局样式，定义通用样式规则
+
+#### 工具目录
+- **utils/** - 存放公共工具函数和通用方法
+
+```tree
 project/
 ├── pages/
 │ ├── index/ # 首页
@@ -104,6 +125,8 @@ project/
 ├── app.js # 应用入口
 ├── app.json # 应用配置
 └── app.wxss # 全局样式
+```
+
 ## 核心功能实现
 
 ### 1. 图像识别处理
@@ -132,26 +155,6 @@ showResultView: true
 });
 }
 
-## 资源下载
-
-项目资源通过百度网盘分享：
-
-- 完整代码包：
-  - 链接：https://pan.baidu.com/s/1xxxxxxxxxxxxxxxx
-  - 提取码：xxxx
-  - 有效期：2024-03-20
-
-- 测试资源包：
-  - 链接：https://pan.baidu.com/s/1xxxxxxxxxxxxxxxx
-  - 提取码：xxxx
-  - 有效期：2024-03-20
-
-## 安装和运行
-
-1. 克隆项目
-```
-git clone [repository URL]
-```
 
 ## 开发环境要求
 
@@ -171,6 +174,11 @@ git clone [repository URL]
 - 优化识别请求
 - 合理使用缓存
 
+3. API 密钥有效期为一个月
+- 请及时更新过期的 API 密钥
+- 建议设置密钥到期提醒
+- 请勿泄露 API 密钥信息
+
 ## 后续计划
 
 1. 功能扩展
@@ -189,16 +197,42 @@ git clone [repository URL]
   - 初始版本发布
   - 实现基础识别功能
 
-## 许可证
-
-MIT License
-
-## 作者
-
-[作者名称]
-- Email: [邮箱]
-- GitHub: [GitHub主页]
 
 ## 致谢
 
 感谢所有贡献者的支持。
+
+## API 配置说明
+
+本项目使用百度云 AI 接口，需要配置以下 API：
+
+### 百度云 API 配置
+1. **人脸识别 API**
+   - 有效期：一个月
+   - 配置位置：`app.js` 中 `globalData`
+   - 到期后需要在百度云控制台更新
+
+2. **文字识别 API**
+   - 有效期：一个月
+   - 配置位置：`app.js` 中 `globalData`
+   - 到期后需要在百度云控制台更新
+
+3. **图像识别 API**
+   - 有效期：一个月
+   - 配置位置：`app.js` 中 `globalData`
+   - 到期后需要在百度云控制台更新
+
+### API 配置示例
+```javascript
+// app.js
+App({
+  globalData: {
+    // 百度云 API 配置
+    baiduAPI: {
+      face: 'your_face_api_key',
+      ocr: 'your_ocr_api_key',
+      image: 'your_image_api_key'
+    }
+  }
+})
+```
